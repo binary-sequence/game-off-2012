@@ -44,6 +44,22 @@ p.notice {
 	width:90%;
 }
 
+#divGameMenu {
+	display:none;
+	background-color:white;
+	color:black;
+	font:bold 28px verdana;
+	margin:auto;
+	padding:0.5em 1em;
+	text-align:center;
+	width:90%;
+}
+
+#divGameMenu img {
+	height:auto;
+	width:50%;
+}
+
 
 
 /*******************************************************************************
