@@ -60,6 +60,33 @@ p.notice {
 	width:50%;
 }
 
+#divGameScreen {
+	display:none;
+	font:normal 24px verdana;
+}
+
+div.timeCounter {
+	background-color:#010;
+	color:#0fa;
+	float:right;
+	height:61px;
+	padding: 0px 0px 3px 3px;
+	text-align:center;
+	width:4.3em;
+}
+
+#divTimeCounter {
+	background-color:#020;
+}
+
+#canvasGameScreen {
+	height:100%;
+	left:50%;
+	position:absolute;
+	top:50%;
+	width:100%;
+}
+
 
 
 /*******************************************************************************
