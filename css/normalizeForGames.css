@@ -87,6 +87,25 @@ div.timeCounter {
 	width:100%;
 }
 
+#divGameOver {
+	background-color:#010;
+	color:#0fa;
+	display:none;
+	left:50%;
+	margin: -32px 0px 0px -148px;
+	position:absolute;
+	text-align:center;
+	top:50%;
+	width:auto;
+}
+
+#divGameOver p {
+	background-color:#020;
+	color:#fff;
+	margin: 0.2em .4em 0 .4em;
+	padding: .3em .5em .3em .5em;
+	text-align: left;
+}
 
 
 /*******************************************************************************
