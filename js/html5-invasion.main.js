@@ -114,11 +114,23 @@ $(document).ready(function() {
 		console.info("Event: window.click");
 		console.info(e);
 
+		// From game license to game menu.
 		if( state == 'license' ) {
 
 			$('#divGameLicense').fadeOut( 1000, function() {
 				$('#divGameMenu').fadeIn( 1000, function() {
 					state = 'menu';
+				});
+			});
+
+		}
+
+		// From game menu to game.
+		else if( state == 'menu' ) {
+
+			$('#divGameMenu').fadeOut( 1000, function() {
+				$('#divGameScreen').fadeIn( 1000, function() {
+					state = 'game';
 				});
 			});
 
