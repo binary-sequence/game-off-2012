@@ -21,7 +21,7 @@
 ;
 // GLOBAL VARIABLES.    --------//
 
-	var main_loop;
+	var FPS = 60, main_loop;
 
 	var state;
 	/*
@@ -44,7 +44,6 @@
 
 			// Show information in the javascript console of the browser.
 			console.info("Game state: License.");
-
 
 		}// END if( state == 'license' ).
 
@@ -79,13 +78,14 @@
 		}// END if( state == 'gameover' ).
 
 		// Continue the loop.
-		main_loop = window.requestAnimationFrame( mainLoop );
+		window.setTimeout(function() {
+			main_loop = window.requestAnimationFrame( mainLoop );
+		}, 1000/FPS );
 
 	}// END mainLoop.
 
 
 // EVENTS.    --------//
-
 $(document).ready(function() {
 
 	// Show information in the javascript console of the browser.
