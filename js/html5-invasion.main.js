@@ -77,7 +77,9 @@
 
 		}// END if( state == 'gameover' ).
 
-		// Continue the loop.
+
+	// CONTINUE THE LOOP.
+
 		window.setTimeout(function() {
 			main_loop = window.requestAnimationFrame( mainLoop );
 		}, 1000/FPS );
