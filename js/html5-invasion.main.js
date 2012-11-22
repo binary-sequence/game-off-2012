@@ -21,8 +21,21 @@
 ;
 // GLOBAL VARIABLES.    --------//
 
-	var FPS = 60, main_loop;
+	// Images container.
+	var images_container = new Object();
 
+	// Image object for control panel.
+	images_container['control_panel'] = new Image();
+	images_container['control_panel'].src = 'img/control_panel.png';
+
+	// Elements container.
+	var elements_container = new Object();
+
+	// Reference to camera2d object.
+	var camera2d = null;
+
+	// Other stuff
+	var FPS = 60, main_loop;
 	var state;
 	/*
 		STATE:
@@ -65,6 +78,9 @@
 			// Show information in the javascript console of the browser.
 			console.info("Game state: Game.");
 
+			// Update canvas graphics.
+			camera2d.update();
+
 		}// END if( state == 'game' ).
 
 
@@ -95,6 +111,22 @@ $(document).ready(function() {
 
 	// Initial state.
 	state = 'license';
+
+	// camara2D object (See /js/html5-invasion.camera2d.js).
+	camera2d = new Camera2D(images_container, elements_container);
+
+	// Adjust canvas to fit with the new size of screen.
+	camera2d.adjustGameScreen();
+
+
+	// Event: Window size change.
+	$(window).resize(function() {
+		// Show information in the javascript console of the browser.
+		console.info("Event: window.resize");
+
+		// Adjust canvas to fit with the new size of screen.
+		camera2d.adjustGameScreen();
+	});
 
 
 	// Event: oncontextmenu.
