@@ -89,6 +89,12 @@ div.timeCounter {
 	width:100%;
 }
 
+#divControlPanel {
+	left:50%;
+	position:absolute;
+	top:50%;
+}
+
 #divGameOver {
 	background-color:#010;
 	color:#0fa;

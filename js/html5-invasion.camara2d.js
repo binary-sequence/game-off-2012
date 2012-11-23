@@ -69,6 +69,7 @@ function Camera2D(images, elements) {
 			this.contextBufferScreen.fillRect(0, 0, 800, 430);
 			this.contextBufferScreen.fillStyle = "#755E58";
 			this.contextBufferScreen.fillRect(0, 430, 800, 600-430);
+			this.contextBufferScreen.drawImage( images['control_panel'], 0, 430+10 );
 
 
 	// DUMP BUFFER TO CANVAS.    --------//
@@ -106,6 +107,16 @@ function Camera2D(images, elements) {
 		// According to the current size, move canvas to center of screen.
 		this.canvasGameScreen.style.marginTop = (-newHeight / 2) + 'px';
 		this.canvasGameScreen.style.marginLeft = (-newWidth / 2) + 'px';
+
+
+		// MOVE divControlPanel. 800px*150px
+
+			var divControlPanel = document.getElementById('divControlPanel');
+			divControlPanel.style.width = newWidth + 'px';
+			divControlPanel.style.height = 150 * newWidth / 800 + 'px';
+			divControlPanel.style.marginTop = newHeight/2 - 150*newWidth/800 - 10*newWidth/800 + 'px';
+			divControlPanel.style.marginLeft = this.canvasGameScreen.style.marginLeft;
+
 	};
 
 	// Show information in the javascript console of the browser.
