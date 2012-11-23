@@ -233,6 +233,36 @@ $(document).ready(function() {
 	});
 
 
+	// Event: liCommitButton.mousedown.
+	$('#liCommitButton a').mousedown(function(e) {
+
+		// Show information in the javascript console of the browser.
+		console.info("Event: liCommitButton.mousedown");
+		console.info(e);
+
+		// Cancel default click actions.
+		e.preventDefault();
+
+		$(this).parent().addClass('pushed');
+
+	});
+
+
+	// Event: liCommitButton.mouseup.
+	$('#liCommitButton a').mouseup(function(e) {
+
+		// Show information in the javascript console of the browser.
+		console.info("Event: liCommitButton.mouseup");
+		console.info(e);
+
+		// Cancel default click actions.
+		e.preventDefault();
+
+		$(this).parent().removeClass('pushed');
+
+	});
+
+
 	// Execute main loop.
 	mainLoop();
 

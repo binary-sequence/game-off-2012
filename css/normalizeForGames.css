@@ -132,10 +132,16 @@ div.timeCounter {
 	background-size:204%;
 }
 
-#aCommitButton img {
+#liCommitButton {
+	background:url('../img/commitButton.png') 0 0;
+	background-size:200%;
 	height:54%%;
-	overflow:hidden;
-	width:auto;
+	width:30.125%;
+}
+
+#liCommitButton.pushed {
+	background:url('../img/commitButton.png') -100% 0;
+	background-size:200%;
 }
 
 #divGameOver {
