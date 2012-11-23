@@ -91,7 +91,7 @@ div.timeCounter {
 
 #ulControlPanel {
 	left:50%;
-	padding:1% 0 0 2%;
+	padding:0;
 	position:absolute;
 	top:50%;
 }
@@ -100,6 +100,7 @@ div.timeCounter {
 	display:inline-block;
 	list-style:none;
 	overflow:hidden;
+	margin:1% 1% 0% 4%;
 }
 
 #ulControlPanel li a {
@@ -111,8 +112,8 @@ div.timeCounter {
 #liGasPedal {
 	background:url('../img/gasPedal.png') 0 0;
 	background-size:202%;
-	height:48%;
-	width:10.5%;
+	height:82%;
+	width:18%;
 }
 
 #liGasPedal.pushed {
@@ -123,8 +124,8 @@ div.timeCounter {
 #liCraneLever {
 	background:url('../img/craneLever.png') 0 0;
 	background-size:204%;
-	height:48.666666667%;
-	width:7.5%;
+	height:85%;
+	width:13%;
 }
 
 #liCraneLever.pushed {
@@ -135,8 +136,8 @@ div.timeCounter {
 #liCommitButton {
 	background:url('../img/commitButton.png') 0 0;
 	background-size:200%;
-	height:54%%;
-	width:30.125%;
+	height:83%;
+	width:48%;
 }
 
 #liCommitButton.pushed {
