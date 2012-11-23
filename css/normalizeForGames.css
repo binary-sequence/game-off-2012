@@ -120,10 +120,16 @@ div.timeCounter {
 	background-size:202%;
 }
 
-#aCraneLever img {
+#liCraneLever {
+	background:url('../img/craneLever.png') 0 0;
+	background-size:204%;
 	height:48.666666667%;
-	overflow:hidden;
-	width:auto;
+	width:7.5%;
+}
+
+#liCraneLever.pushed {
+	background:url('../img/craneLever.png') -99% 0;
+	background-size:204%;
 }
 
 #aCommitButton img {
