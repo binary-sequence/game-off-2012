@@ -89,10 +89,47 @@ div.timeCounter {
 	width:100%;
 }
 
-#divControlPanel {
+#ulControlPanel {
 	left:50%;
+	padding:1% 0 0 2%;
 	position:absolute;
 	top:50%;
+}
+
+#ulControlPanel li {
+	display:inline-block;
+	list-style:none;
+	overflow:hidden;
+}
+
+#ulControlPanel li a {
+	display:block;
+	height:100%;
+	width:100%;
+}
+
+#liGasPedal {
+	background:url('../img/gasPedal.png') 0 0;
+	background-size:202%;
+	height:48%;
+	width:10.5%;
+}
+
+#liGasPedal.pushed {
+	background:url('../img/gasPedal.png') -99% 0;
+	background-size:202%;
+}
+
+#aCraneLever img {
+	height:48.666666667%;
+	overflow:hidden;
+	width:auto;
+}
+
+#aCommitButton img {
+	height:54%%;
+	overflow:hidden;
+	width:auto;
 }
 
 #divGameOver {

@@ -111,11 +111,11 @@ function Camera2D(images, elements) {
 
 		// MOVE divControlPanel. 800px*150px
 
-			var divControlPanel = document.getElementById('divControlPanel');
-			divControlPanel.style.width = newWidth + 'px';
-			divControlPanel.style.height = 150 * newWidth / 800 + 'px';
-			divControlPanel.style.marginTop = newHeight/2 - 150*newWidth/800 - 10*newWidth/800 + 'px';
-			divControlPanel.style.marginLeft = this.canvasGameScreen.style.marginLeft;
+			var ulControlPanel = document.getElementById('ulControlPanel');
+			ulControlPanel.style.width = newWidth + 'px';
+			ulControlPanel.style.height = 150 * newWidth / 800 + 'px';
+			ulControlPanel.style.marginTop = newHeight/2 - 150*newWidth/800 - 10*newWidth/800 + 'px';
+			ulControlPanel.style.marginLeft = this.canvasGameScreen.style.marginLeft;
 
 	};
 

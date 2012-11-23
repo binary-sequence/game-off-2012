@@ -173,6 +173,33 @@ $(document).ready(function() {
 	});
 
 
+	// Event: liGasPedal.mousedown.
+	$('#liGasPedal a').mousedown(function(e){
+
+		// Show information in the javascript console of the browser.
+		console.info("Event: liGasPedal.mousedown");
+		console.info(e);
+
+		// Cancel default click actions.
+		e.preventDefault();
+
+		$(this).parent().addClass('pushed');
+
+	});
+
+
+	// Event: liGasPedal.mouseup.
+	$('#liGasPedal a').mouseup(function(e){
+
+		// Show information in the javascript console of the browser.
+		console.info("Event: liGasPedal.mouseup");
+		console.info(e);
+
+		$(this).parent().removeClass('pushed');
+
+	});
+
+
 	// Execute main loop.
 	mainLoop();
 
