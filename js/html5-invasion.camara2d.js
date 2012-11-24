@@ -82,6 +82,15 @@ function Camera2D(images, elements) {
 			this.drawEllipse( x+162.5, y+25, 225, 50, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+200, y+37.5, 200, 50, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+100, y+50+12.5, 200, 50, 'white', this.contextBufferScreen );
+			x = elements['cloud_b'].x;
+			y = elements['cloud_b'].y;
+			this.drawEllipse( x+25, y+12.5, 50, 25, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+52.5, y+25, 75, 37.5, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+80, y+31.25, 100, 50, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+125, y+37.5, 150, 75, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+200, y+50, 150, 75, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+270, y+37.5, 200, 75, 'white', this.contextBufferScreen );
+
 
 	// DUMP BUFFER TO CANVAS.    --------//
 

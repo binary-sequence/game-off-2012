@@ -38,6 +38,13 @@
 		x_speed: -1
 	};
 
+	// Cloud B.
+	elements_container['cloud_b'] = {
+		x: 400,
+		y: 1,
+		x_speed: -1
+	};
+
 	// Reference to camera2d object.
 	var camera2d = null;
 
