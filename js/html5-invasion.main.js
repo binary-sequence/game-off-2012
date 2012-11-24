@@ -34,15 +34,13 @@
 	// Cloud A.
 	elements_container['cloud_a'] = {
 		x: 1,
-		y: 1,
-		x_speed: -1
+		y: 1
 	};
 
 	// Cloud B.
 	elements_container['cloud_b'] = {
 		x: 400,
-		y: 1,
-		x_speed: -1
+		y: 1
 	};
 
 	// Reference to camera2d object.
@@ -91,6 +89,16 @@
 
 			// Show information in the javascript console of the browser.
 			console.info("Game state: Game.");
+
+			// UPDATE ELEMENTS.
+
+				// Clouds.
+				elements_container['cloud_a'].x -= 1;
+				elements_container['cloud_b'].x -= 1;
+				if ( elements_container['cloud_a'].x <= -275 )
+					elements_container['cloud_a'].x = 800;
+				if ( elements_container['cloud_b'].x <= -300 )
+					elements_container['cloud_b'].x = 800;
 
 			// Update canvas graphics.
 			camera2d.update();
