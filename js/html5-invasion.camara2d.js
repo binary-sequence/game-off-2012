@@ -65,12 +65,23 @@ function Camera2D(images, elements) {
 
 		// BACKGROUND.    --------//
 
+			// Sky
 			this.contextBufferScreen.fillStyle = "#E3E3E3";
 			this.contextBufferScreen.fillRect(0, 0, 800, 430);
+
+			// Land
 			this.contextBufferScreen.fillStyle = "#755E58";
 			this.contextBufferScreen.fillRect(0, 430, 800, 600-430);
+
+			// Control panel box.
 			this.contextBufferScreen.drawImage( images['control_panel'], 0, 430+10 );
 
+			// Clouds.
+			var x = elements['cloud_a'].x;
+			var y = elements['cloud_a'].y;
+			this.drawEllipse( x+162.5, y+25, 225, 50, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+200, y+37.5, 200, 50, 'white', this.contextBufferScreen );
+			this.drawEllipse( x+100, y+50+12.5, 200, 50, 'white', this.contextBufferScreen );
 
 	// DUMP BUFFER TO CANVAS.    --------//
 
@@ -117,6 +128,27 @@ function Camera2D(images, elements) {
 			ulControlPanel.style.marginTop = newHeight/2 - 150*newWidth/800 - 10*newWidth/800 + 'px';
 			ulControlPanel.style.marginLeft = this.canvasGameScreen.style.marginLeft;
 
+	};
+
+
+	// This function draws an ellipse.
+	this.drawEllipse = function(centerX, centerY, width, height, color, context) {
+
+		context.beginPath();
+		context.moveTo(centerX, centerY - height/2); // A1
+		context.bezierCurveTo(
+			centerX + width/2, centerY - height/2, // C1
+			centerX + width/2, centerY + height/2, // C2
+			centerX, centerY + height/2 // A2
+		);
+		context.bezierCurveTo(
+			centerX - width/2, centerY + height/2, // C3
+			centerX - width/2, centerY - height/2, // C4
+			centerX, centerY - height/2 // A1
+		);
+		context.fillStyle = color;
+		context.fill();
+		context.closePath();
 	};
 
 	// Show information in the javascript console of the browser.

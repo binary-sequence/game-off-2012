@@ -31,6 +31,13 @@
 	// Elements container.
 	var elements_container = new Object();
 
+	// Cloud A.
+	elements_container['cloud_a'] = {
+		x: 1,
+		y: 1,
+		x_speed: -1
+	};
+
 	// Reference to camera2d object.
 	var camera2d = null;
 
