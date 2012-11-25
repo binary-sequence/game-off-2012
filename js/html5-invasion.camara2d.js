@@ -106,6 +106,14 @@ function Camera2D(images, elements) {
 						133, 0, 133, 80,
 						x, y, 133, 80
 					);
+					if( elements['buildings'][i].floors[j] == 'fire' ) {
+						for( var k = 15; k <= (15+33*2); k += 33 ) {
+							this.contextBufferScreen.drawImage( images['fire'],
+								0, 0, 24, 26,
+								x+k, y+24, 24, 26
+							);
+						}
+					}
 				}
 			}
 

@@ -29,6 +29,8 @@
 	images_container['control_panel'].src = 'img/control_panel.png';
 	images_container['building'] = new Image();
 	images_container['building'].src = 'img/building.png';
+	images_container['fire'] = new Image();
+	images_container['fire'].src = 'img/fire.png';
 
 	// Elements container.
 	var elements_container = new Object();
