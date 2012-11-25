@@ -93,10 +93,20 @@ function Camera2D(images, elements) {
 
 		// BUILDINGS.
 
-			for(var i = 0; i < elements['buildings'].length; i++) {
+			for( i in elements['buildings'] ) {
 				var x = elements['buildings'][i].x;
 				var y = 350;
-				this.contextBufferScreen.drawImage( images['building'], 0, 0, 133, 80, x, y, 133, 80 );
+				this.contextBufferScreen.drawImage( images['building'],
+					0, 0, 133, 80,
+					x, y, 133, 80
+				);
+				for( j in elements['buildings'][i].floors ) {
+					y -= 80;
+					this.contextBufferScreen.drawImage( images['building'],
+						133, 0, 133, 80,
+						x, y, 133, 80
+					);
+				}
 			}
 
 
