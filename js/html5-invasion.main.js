@@ -35,12 +35,10 @@
 
 	// Clouds.
 	elements_container['cloud_a'] = {
-		x: 1,
-		y: 1
+		x: 1
 	};
 	elements_container['cloud_b'] = {
-		x: 400,
-		y: 1
+		x: 400
 	};
 
 	// Buildings.
