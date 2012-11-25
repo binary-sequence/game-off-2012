@@ -24,24 +24,64 @@
 	// Images container.
 	var images_container = new Object();
 
-	// Image object for control panel.
+	// Load images.
 	images_container['control_panel'] = new Image();
 	images_container['control_panel'].src = 'img/control_panel.png';
+	images_container['building'] = new Image();
+	images_container['building'].src = 'img/building.png';
 
 	// Elements container.
 	var elements_container = new Object();
 
-	// Cloud A.
+	// Clouds.
 	elements_container['cloud_a'] = {
 		x: 1,
 		y: 1
 	};
-
-	// Cloud B.
 	elements_container['cloud_b'] = {
 		x: 400,
 		y: 1
 	};
+
+	// Buildings.
+	elements_container['buildings'] = [
+		{
+			x: 0,
+			floors: [
+				'fire',
+				'fire',
+				'fire',
+				'safe'
+			]
+		},
+		{
+			x: 266,
+			floors: [
+				'fire',
+				'fire',
+				'fire',
+				'safe'
+			]
+		},
+		{
+			x: 532,
+			floors: [
+				'fire',
+				'fire',
+				'fire',
+				'safe'
+			]
+		},
+		{
+			x: 798,
+			floors: [
+				'fire',
+				'fire',
+				'fire',
+				'safe'
+			]
+		},
+	];
 
 	// Reference to camera2d object.
 	var camera2d = null;

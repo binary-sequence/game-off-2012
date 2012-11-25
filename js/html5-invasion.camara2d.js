@@ -92,6 +92,15 @@ function Camera2D(images, elements) {
 			this.drawEllipse( x+270, y+37.5, 200, 75, 'white', this.contextBufferScreen );
 
 
+		// BUILDINGS.
+
+			for(var i = 0; i < elements['buildings'].length; i++) {
+				var x = elements['buildings'][i].x;
+				var y = 350;
+				this.contextBufferScreen.drawImage( images['building'], 0, 0, 133, 80, x, y, 133, 80 );
+			}
+
+
 	// DUMP BUFFER TO CANVAS.    --------//
 
 		this.contextGameScreen.drawImage( this.canvasBufferScreen, 0, 0 );
