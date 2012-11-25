@@ -57,6 +57,12 @@ function Camera2D(images, elements) {
 	this.canvasBufferScreen.width = this.canvasGameScreen.width;
 	this.canvasBufferScreen.height = this.canvasGameScreen.height;
 
+	// Frames to draw fire.
+	this.elements['fire'] = {
+		frame: 0,
+		count: 0
+	}
+
 
 // METHODS.    --------//
 
@@ -109,9 +115,22 @@ function Camera2D(images, elements) {
 					if( elements['buildings'][i].floors[j] == 'fire' ) {
 						for( var k = 15; k <= (15+33*2); k += 33 ) {
 							this.contextBufferScreen.drawImage( images['fire'],
-								0, 0, 24, 26,
+								this.elements['fire'].frame, 0, 24, 26,
 								x+k, y+24, 24, 26
 							);
+							if( this.elements['fire'].frame == 0 ) {
+								this.elements['fire'].count++;
+								if( this.elements['fire'].count > 4 ) {
+									this.elements['fire'].frame = 24;
+									this.elements['fire'].count = 0;
+								}
+							} else {
+								this.elements['fire'].count++;
+								if( this.elements['fire'].count > 4 ) {
+									this.elements['fire'].frame = 0;
+									this.elements['fire'].count = 0;
+								}
+							}
 						}
 					}
 				}
