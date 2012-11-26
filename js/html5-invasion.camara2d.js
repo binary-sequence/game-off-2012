@@ -119,13 +119,13 @@ function Camera2D(images, elements) {
 					if( elements['buildings'][i].floors[j] == 'fire' ) {
 						for( var k = 15; k <= (15+33*2); k += 33 ) {
 							this.contextBufferScreen.drawImage( images['fire'],
-								this.elements['fire'].frame, 0, 24, 26,
-								x+k, y+24, 24, 26
+								this.elements['fire'].frame, 0, 25, 26,
+								x+k, y+24, 25, 26
 							);
 							if( this.elements['fire'].frame == 0 ) {
 								this.elements['fire'].count++;
 								if( this.elements['fire'].count > 4 ) {
-									this.elements['fire'].frame = 24;
+									this.elements['fire'].frame = 25;
 									this.elements['fire'].count = 0;
 								}
 							} else {
