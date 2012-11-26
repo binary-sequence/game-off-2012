@@ -63,6 +63,10 @@ function Camera2D(images, elements) {
 		count: 0
 	}
 
+	// Frames to draw truck.
+	this.elements['truck'].frame = 0;
+	this.elements['truck'].count = 0;
+
 
 // METHODS.    --------//
 
@@ -137,9 +141,19 @@ function Camera2D(images, elements) {
 			}
 
 
-	// DUMP BUFFER TO CANVAS.    --------//
+		// TRUCK.
 
-		this.contextGameScreen.drawImage( this.canvasBufferScreen, 0, 0 );
+			var x = elements['truck'].x;
+			var y = 363;
+			this.contextBufferScreen.drawImage( images['truck'],
+				elements['truck'].frame, 0, 131, 78,
+				x, y, 131, 78
+			);
+
+
+		// DUMP BUFFER TO CANVAS.    --------//
+
+			this.contextGameScreen.drawImage( this.canvasBufferScreen, 0, 0 );
 
 	};
 

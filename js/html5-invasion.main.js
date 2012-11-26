@@ -31,6 +31,8 @@
 	images_container['building'].src = 'img/building.png';
 	images_container['fire'] = new Image();
 	images_container['fire'].src = 'img/fire.png';
+	images_container['truck'] = new Image();
+	images_container['truck'].src = 'img/truck.png';
 
 	// Elements container.
 	var elements_container = new Object();
@@ -41,6 +43,11 @@
 	};
 	elements_container['cloud_b'] = {
 		x: 400
+	};
+
+	// Truck.
+	elements_container['truck'] = {
+		x: 0
 	};
 
 	// Buildings.
