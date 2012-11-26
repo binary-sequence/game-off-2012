@@ -33,6 +33,8 @@
 	images_container['fire'].src = 'img/fire.png';
 	images_container['truck'] = new Image();
 	images_container['truck'].src = 'img/truck.png';
+	images_container['crane'] = new Image();
+	images_container['crane'].src = 'img/crane.png';
 
 	// Elements container.
 	var elements_container = new Object();
@@ -43,11 +45,6 @@
 	};
 	elements_container['cloud_b'] = {
 		x: 400
-	};
-
-	// Truck.
-	elements_container['truck'] = {
-		x: 0
 	};
 
 	// Buildings.
@@ -83,6 +80,11 @@
 			]
 		},
 	];
+
+	// Truck.
+	elements_container['truck'] = {
+		x: 0
+	};
 
 	// Reference to camera2d object.
 	var camera2d = null;
