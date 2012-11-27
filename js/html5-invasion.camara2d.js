@@ -177,7 +177,8 @@ function Camera2D(images, elements) {
 		// INFOBOXES.
 
 			if( elements['infoboxes'].commit_info ) {
-				this.drawText('Push the commit button to shoot water.', 0, 0, this.contextBufferScreen);
+				this.drawBox(4, 4, 462.5, 40, this.contextBufferScreen);
+				this.drawText('Push the commit button to shoot water.', 9, 7, this.contextBufferScreen);
 			}
 
 
@@ -256,6 +257,17 @@ function Camera2D(images, elements) {
 		context.font = 'bold 20pt Verdana';
 		context.fillStyle = 'black';
 		context.fillText( text, x, y );
+	};
+
+	this.drawBox = function(x, y, w, h, context) {
+		context.beginPath();
+		context.rect(x, y, w, h);
+		context.fillStyle = 'white';
+		context.fill();
+		context.lineWidth = 5;
+		context.strokeStyle = 'black';
+		context.stroke();
+		context.closePath();
 	};
 
 	// Show information in the javascript console of the browser.
