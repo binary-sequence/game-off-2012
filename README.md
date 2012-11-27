@@ -6,7 +6,7 @@ Control a fire truck in an epic struggle against the threat of space!
 
 ### Do you want to play the game?
 
-* [Play html5-invasion](http://binary-sequence.github.com/html5-invasion/)
+* [Play html5-invasion](http://binary-sequence.github.com/game-off-2012/)
 
 ## Screenshot
 
