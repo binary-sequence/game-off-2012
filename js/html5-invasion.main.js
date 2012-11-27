@@ -87,6 +87,13 @@
 		is_moving: true
 	};
 
+	// Infobox.
+	elements_container['infoboxes'] = {
+		commit_info: false,
+		push_info: false,
+		pull_info: false
+	};
+
 	// Reference to camera2d object.
 	var camera2d = null;
 
@@ -150,6 +157,7 @@
 					elements_container['truck'].x += 4;
 				} else {
 					elements_container['truck'].is_moving = false;
+					elements_container['infoboxes'].commit_info = true;
 				}
 
 			// Update canvas graphics.
