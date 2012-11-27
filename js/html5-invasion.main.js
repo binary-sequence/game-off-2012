@@ -83,7 +83,8 @@
 
 	// Truck.
 	elements_container['truck'] = {
-		x: 0
+		x: -131,
+		is_moving: true
 	};
 
 	// Reference to camera2d object.
@@ -142,6 +143,14 @@
 					elements_container['cloud_a'].x = 800;
 				if ( elements_container['cloud_b'].x <= -300 )
 					elements_container['cloud_b'].x = 800;
+
+				// Truck.
+				if( elements_container['truck'].x <= 20 ) {
+					elements_container['truck'].is_moving = true;
+					elements_container['truck'].x += 4;
+				} else {
+					elements_container['truck'].is_moving = false;
+				}
 
 			// Update canvas graphics.
 			camera2d.update();

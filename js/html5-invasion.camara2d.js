@@ -149,6 +149,21 @@ function Camera2D(images, elements) {
 
 			var x = elements['truck'].x;
 			var y = 363;
+			if( this.elements['truck'].is_moving ) {
+				if( this.elements['truck'].frame == 0 ) {
+					this.elements['truck'].count++;
+					if( this.elements['truck'].count > 4 ) {
+						this.elements['truck'].frame = 131;
+						this.elements['truck'].count = 0;
+					}
+				} else {
+					this.elements['truck'].count++;
+					if( this.elements['truck'].count > 4 ) {
+						this.elements['truck'].frame = 0;
+						this.elements['truck'].count = 0;
+					}
+				}
+			}
 			this.contextBufferScreen.drawImage( images['truck'],
 				this.elements['truck'].frame, 0, 131, 78,
 				x, y, 131, 78
