@@ -50,20 +50,20 @@
 	// Buildings.
 	elements_container['buildings'] = [
 		{
-			x: 0,
+			x: 144,
 			floors: [
 				'fire'
 			]
 		},
 		{
-			x: 266,
+			x: 144+266,
 			floors: [
 				'fire',
 				'safe'
 			]
 		},
 		{
-			x: 532,
+			x: 144+532,
 			floors: [
 				'fire',
 				'fire',
@@ -71,7 +71,7 @@
 			]
 		},
 		{
-			x: 798,
+			x: 144+798,
 			floors: [
 				'fire',
 				'fire',
