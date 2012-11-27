@@ -107,6 +107,7 @@
 		game,
 		gameover
 	*/
+	var temp = Object();
 
 
 // FUNCTIONS.    --------//
@@ -153,11 +154,15 @@
 
 				// Truck.
 				if( elements_container['truck'].x <= 20 ) {
+					// Starting game.
 					elements_container['truck'].is_moving = true;
 					elements_container['truck'].x += 4;
-				} else {
+					temp.starting_game = 'commit';
+				} else if( temp.starting_game == 'commit' ) {
+					// Starting game.
 					elements_container['truck'].is_moving = false;
 					elements_container['infoboxes'].commit_info = true;
+					temp.starting_game = 'pull';
 				}
 
 			// Update canvas graphics.
@@ -324,6 +329,8 @@ $(document).ready(function() {
 
 		// Cancel default click actions.
 		e.preventDefault();
+
+		elements_container['infoboxes'].commit_info = false;
 
 		$(this).parent().addClass('pushed');
 
