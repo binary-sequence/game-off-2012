@@ -35,6 +35,8 @@
 	images_container['truck'].src = 'img/truck.png';
 	images_container['crane'] = new Image();
 	images_container['crane'].src = 'img/crane.png';
+	images_container['shot_of_water'] = new Image();
+	images_container['shot_of_water'].src = 'img/shot_of_water.png';
 
 	// Elements container.
 	var elements_container = new Object();
@@ -85,6 +87,11 @@
 	elements_container['truck'] = {
 		x: -131,
 		is_moving: true
+	};
+
+	// Shot of water.
+	elements_container['shot_of_water'] = {
+		show: false
 	};
 
 	// Infobox.
@@ -330,7 +337,11 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
+		// Hide infobox.
 		elements_container['infoboxes'].commit_info = false;
+
+		// Show shot of water.
+		elements_container['shot_of_water'].show = true;
 
 		$(this).parent().addClass('pushed');
 

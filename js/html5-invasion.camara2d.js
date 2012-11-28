@@ -71,6 +71,10 @@ function Camera2D(images, elements) {
 		count: 0
 	};
 
+	// Frames to draw shot of water.
+	this.elements['shot_of_water'].frame = 0;
+	this.elements['shot_of_water'].count = 0;
+
 
 // METHODS.    --------//
 
@@ -149,6 +153,8 @@ function Camera2D(images, elements) {
 
 			var x = elements['truck'].x;
 			var y = 363;
+
+			// Truck.
 			if( this.elements['truck'].is_moving ) {
 				if( this.elements['truck'].frame == 0 ) {
 					this.elements['truck'].count++;
@@ -168,10 +174,30 @@ function Camera2D(images, elements) {
 				this.elements['truck'].frame, 0, 131, 78,
 				x, y, 131, 78
 			);
+
+			// Crane.
 			this.contextBufferScreen.drawImage( images['crane'],
 				this.elements['crane'].frame, 0, 137, 294,
 				x, y-294, 137, 294
 			);
+
+			// Shot of water.
+			if( this.elements['shot_of_water'].show ) {
+				this.elements['shot_of_water'].count++;
+				if( this.elements['shot_of_water'].count > 4 ) {
+					if( this.elements['shot_of_water'].frame == 0 ) {
+						this.elements['shot_of_water'].frame = 87;
+					} else {
+						this.elements['shot_of_water'].frame = 0;
+						this.elements['shot_of_water'].show = false;
+					}
+					this.elements['shot_of_water'].count = 0;
+				}
+				this.contextBufferScreen.drawImage( images['shot_of_water'],
+					this.elements['shot_of_water'].frame, 0, 87, 10,
+					x+130, y-49, 87, 10
+				);
+			}
 
 
 		// INFOBOXES.
