@@ -286,7 +286,19 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
-		$(this).parent().addClass('pushed');
+		if( elements_container['infoboxes'].commit_info == false &&
+			elements_container['infoboxes'].pull_info == false &&
+			elements_container['truck'].is_moving == false ) {
+			if( elements_container['infoboxes'].push_info ) {
+				// Hide infobox push_info.
+				elements_container['infoboxes'].push_info = false;
+			}
+
+			// Move forward.
+			// TODO
+
+			$(this).parent().addClass('pushed');
+		}
 
 	});
 
@@ -316,17 +328,23 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
-		// Hide infobox pull_info / show infobox push_info.
-		elements_container['infoboxes'].pull_info = false;
-		elements_container['infoboxes'].push_info = true;
+		if( elements_container['infoboxes'].commit_info == false &&
+			elements_container['infoboxes'].push_info == false &&
+			elements_container['truck'].is_moving == false ) {
+			if( elements_container['infoboxes'].pull_info ) {
+				// Hide infobox pull_info / show infobox push_info.
+				elements_container['infoboxes'].pull_info = false;
+				elements_container['infoboxes'].commit_info = true;
+			}
 
-		// Move crane.
-		elements_container['crane'].position++;
-		if( elements_container['crane'].position > 3 ) {
-			elements_container['crane'].position = 0;
+			// Move crane.
+			elements_container['crane'].position++;
+			if( elements_container['crane'].position > 3 ) {
+				elements_container['crane'].position = 0;
+			}
+
+			$(this).parent().addClass('pushed');
 		}
-
-		$(this).parent().addClass('pushed');
 
 	});
 
@@ -356,19 +374,29 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
-		// Hide infobox commit_info / show infobox pull_info.
-		elements_container['infoboxes'].commit_info = false;
-		elements_container['infoboxes'].pull_info = true;
+		if( elements_container['infoboxes'].pull_info == false &&
+			elements_container['infoboxes'].push_info == false &&
+			elements_container['truck'].is_moving == false ) {
+			// Hide infobox commit_info / show infobox pull_info.
+			if( elements_container['infoboxes'].commit_info ) {
+				elements_container['infoboxes'].commit_info = false;
+				if( elements_container['crane'].position == 0 ) {
+					elements_container['infoboxes'].pull_info = true;
+				} else if( elements_container['crane'].position == 1 ) {
+					elements_container['infoboxes'].push_info = true;
+				}
+			}
 
-		// Show shot of water.
-		elements_container['shot_of_water'].show = true;
+			// Show shot of water.
+			elements_container['shot_of_water'].show = true;
 
-		// Extinguish fire.
-		if( elements_container['buildings'][1].floors[ elements_container['crane'].position ] == 'fire' ) {
-			elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
+			// Extinguish fire.
+			if( elements_container['buildings'][1].floors[ elements_container['crane'].position ] == 'fire' ) {
+				elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
+			}
+
+			$(this).parent().addClass('pushed');
 		}
-
-		$(this).parent().addClass('pushed');
 
 	});
 

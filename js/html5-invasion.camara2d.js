@@ -204,6 +204,9 @@ function Camera2D(images, elements) {
 			} else if( elements['infoboxes'].pull_info ) {
 				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
 				this.drawText('Pull the lever to move the crane.', 9, 7, this.contextBufferScreen);
+			} else if( elements['infoboxes'].push_info ) {
+				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
+				this.drawText('Push the pedal to move forward.', 9, 7, this.contextBufferScreen);
 			}
 
 
