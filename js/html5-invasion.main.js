@@ -106,8 +106,8 @@
 	// Infobox.
 	elements_container['infoboxes'] = {
 		commit_info: false,
-		push_info: false,
-		pull_info: false
+		pull_info: false,
+		push_info: false
 	};
 
 	// Reference to camera2d object.
@@ -316,6 +316,16 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
+		// Hide infobox pull_info / show infobox push_info.
+		elements_container['infoboxes'].pull_info = false;
+		elements_container['infoboxes'].push_info = true;
+
+		// Move crane.
+		elements_container['crane'].position++;
+		if( elements_container['crane'].position > 3 ) {
+			elements_container['crane'].position = 0;
+		}
+
 		$(this).parent().addClass('pushed');
 
 	});
@@ -346,8 +356,9 @@ $(document).ready(function() {
 		// Cancel default click actions.
 		e.preventDefault();
 
-		// Hide infobox.
+		// Hide infobox commit_info / show infobox pull_info.
 		elements_container['infoboxes'].commit_info = false;
+		elements_container['infoboxes'].pull_info = true;
 
 		// Show shot of water.
 		elements_container['shot_of_water'].show = true;

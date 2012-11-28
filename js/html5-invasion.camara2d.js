@@ -191,7 +191,7 @@ function Camera2D(images, elements) {
 				}
 				this.contextBufferScreen.drawImage( images['shot_of_water'],
 					this.elements['shot_of_water'].frame, 0, 87, 10,
-					x+130, y-49, 87, 10
+					x+130, y-49-80*this.elements['crane'].position, 87, 10
 				);
 			}
 
@@ -201,6 +201,9 @@ function Camera2D(images, elements) {
 			if( elements['infoboxes'].commit_info ) {
 				this.drawBox(4, 4, 462.5, 40, this.contextBufferScreen);
 				this.drawText('Push the commit button to shoot water.', 9, 7, this.contextBufferScreen);
+			} else if( elements['infoboxes'].pull_info ) {
+				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
+				this.drawText('Pull the lever to move the crane.', 9, 7, this.contextBufferScreen);
 			}
 
 
