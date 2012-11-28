@@ -364,7 +364,9 @@ $(document).ready(function() {
 		elements_container['shot_of_water'].show = true;
 
 		// Extinguish fire.
-		elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
+		if( elements_container['buildings'][1].floors[ elements_container['crane'].position ] == 'fire' ) {
+			elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
+		}
 
 		$(this).parent().addClass('pushed');
 
