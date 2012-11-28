@@ -60,6 +60,7 @@
 		{
 			x: 144,
 			floors: [
+				'fire',
 				'fire'
 			]
 		},
@@ -67,24 +68,21 @@
 			x: 144+266,
 			floors: [
 				'fire',
-				'safe'
+				'fire'
 			]
 		},
 		{
 			x: 144+532,
 			floors: [
 				'fire',
-				'fire',
-				'safe'
+				'fire'
 			]
 		},
 		{
 			x: 144+798,
 			floors: [
 				'fire',
-				'fire',
-				'fire',
-				'safe'
+				'fire'
 			]
 		},
 	];
