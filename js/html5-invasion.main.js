@@ -52,6 +52,12 @@
 	// Buildings.
 	elements_container['buildings'] = [
 		{
+			x: 144-266,
+			floors: [
+				'safe'
+			]
+		},
+		{
 			x: 144,
 			floors: [
 				'fire'
@@ -87,6 +93,11 @@
 	elements_container['truck'] = {
 		x: -131,
 		is_moving: true
+	};
+
+	// Crane.
+	elements_container['crane'] = {
+		position: 0
 	};
 
 	// Shot of water.
@@ -342,6 +353,9 @@ $(document).ready(function() {
 
 		// Show shot of water.
 		elements_container['shot_of_water'].show = true;
+
+		// Extinguish fire.
+		elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
 
 		$(this).parent().addClass('pushed');
 

@@ -66,10 +66,6 @@ function Camera2D(images, elements) {
 	// Frames to draw truck and crane.
 	this.elements['truck'].frame = 0;
 	this.elements['truck'].count = 0;
-	this.elements['crane'] = {
-		frame: 0,
-		count: 0
-	};
 
 	// Frames to draw shot of water.
 	this.elements['shot_of_water'].frame = 0;
@@ -177,7 +173,7 @@ function Camera2D(images, elements) {
 
 			// Crane.
 			this.contextBufferScreen.drawImage( images['crane'],
-				this.elements['crane'].frame, 0, 137, 294,
+				this.elements['crane'].position * 137, 0, 137, 294,
 				x, y-294, 137, 294
 			);
 
