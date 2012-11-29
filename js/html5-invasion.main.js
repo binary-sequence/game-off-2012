@@ -188,8 +188,6 @@
 						elements_container['buildings'][i].x -= 7;
 					}
 					if ( elements_container['buildings'][2].x == 144 ) {
-console.info(elements_container['buildings'][0]);
-console.info(elements_container['buildings'][4]);
 						temp.move_forward = false;
 						elements_container['truck'].is_moving = false;
 						elements_container['buildings'].shift();
