@@ -112,12 +112,13 @@
 
 	// Counters.
 	elements_container['secured_buildings'] = 0;
+	elements_container['countdown_seconds'] = 30;
 
 	// Reference to camera2d object.
 	var camera2d = null;
 
 	// Other stuff
-	var FPS = 60, main_loop;
+	var FPS = 60, main_loop, time_interval;
 	var state;
 	/*
 		STATE:
@@ -203,6 +204,11 @@
 						});
 					}
 				}
+
+			// Game over.
+			if( elements_container['countdown_seconds'] < 0 ) {
+				state = 'gameover';
+			}
 
 
 			// Update canvas graphics.
@@ -292,6 +298,12 @@ $(document).ready(function() {
 			$('#divGameMenu').fadeOut( 1000, function() {
 				$('#divGameScreen').fadeIn( 1000, function() {
 					state = 'game';
+
+					// Time is running out.
+					time_interval = setInterval( function() {
+						elements_container['countdown_seconds'] --;
+						$('#divTimeCounter').html( elements_container['countdown_seconds'] );
+					}, 1000 );
 				});
 			});
 
