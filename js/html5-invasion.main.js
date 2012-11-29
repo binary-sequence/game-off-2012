@@ -113,6 +113,7 @@
 	// Counters.
 	elements_container['secured_buildings'] = 0;
 	elements_container['countdown_seconds'] = 30;
+	elements_container['counted_seconds'] = 0;
 
 	// Reference to camera2d object.
 	var camera2d = null;
@@ -206,9 +207,14 @@
 				}
 
 			// Game over.
-			if( elements_container['countdown_seconds'] < 0 ) {
+			if( elements_container['countdown_seconds'] <= 0 ) {
 				state = 'gameover';
 				clearInterval( time_interval );
+				$('#divGameOver p:not(.notice)').html(
+					'Time: ' + Math.floor( elements_container['counted_seconds'] / 60 ) + ':' + elements_container['counted_seconds'] % 60 + "<br>\n" +
+					'Secured buildings: ' + elements_container['secured_buildings'] + "<br>\n"
+				);
+				$('#divGameOver').fadeIn( 1000 );
 			}
 
 
@@ -303,6 +309,7 @@ $(document).ready(function() {
 					// Time is running out.
 					time_interval = setInterval( function() {
 						elements_container['countdown_seconds'] --;
+						elements_container['counted_seconds'] ++;
 						$('#divTimeCounter').html( elements_container['countdown_seconds'] );
 					}, 1000 );
 				});
