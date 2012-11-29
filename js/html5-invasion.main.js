@@ -208,6 +208,7 @@
 			// Game over.
 			if( elements_container['countdown_seconds'] < 0 ) {
 				state = 'gameover';
+				clearInterval( time_interval );
 			}
 
 
@@ -324,7 +325,8 @@ $(document).ready(function() {
 
 		if( elements_container['infoboxes'].commit_info == false &&
 			elements_container['infoboxes'].pull_info == false &&
-			elements_container['truck'].is_moving == false ) {
+			elements_container['truck'].is_moving == false &&
+			state == 'game' ) {
 			if( elements_container['infoboxes'].push_info ) {
 				// Hide infobox push_info.
 				elements_container['infoboxes'].push_info = false;
@@ -366,7 +368,8 @@ $(document).ready(function() {
 
 		if( elements_container['infoboxes'].commit_info == false &&
 			elements_container['infoboxes'].push_info == false &&
-			elements_container['truck'].is_moving == false ) {
+			elements_container['truck'].is_moving == false &&
+			state == 'game' ) {
 			if( elements_container['infoboxes'].pull_info ) {
 				// Hide infobox pull_info / show infobox push_info.
 				elements_container['infoboxes'].pull_info = false;
@@ -412,7 +415,8 @@ $(document).ready(function() {
 
 		if( elements_container['infoboxes'].pull_info == false &&
 			elements_container['infoboxes'].push_info == false &&
-			elements_container['truck'].is_moving == false ) {
+			elements_container['truck'].is_moving == false &&
+			state == 'game' ) {
 			// Hide infobox commit_info / show infobox pull_info.
 			if( elements_container['infoboxes'].commit_info ) {
 				elements_container['infoboxes'].commit_info = false;
