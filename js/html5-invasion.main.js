@@ -110,6 +110,9 @@
 		push_info: false
 	};
 
+	// Counters.
+	elements_container['secured_buildings'] = 0;
+
 	// Reference to camera2d object.
 	var camera2d = null;
 
@@ -415,6 +418,15 @@ $(document).ready(function() {
 			if( elements_container['buildings'][1].floors[ elements_container['crane'].position ] == 'fire' ) {
 				elements_container['buildings'][1].floors[ elements_container['crane'].position ] = 'safe';
 			}
+
+			// Count secured buildings.
+			temp.secured_floors = 0;
+			for( i in elements_container['buildings'][1].floors ) {
+				if( elements_container['buildings'][1].floors[i] == 'safe' )
+					temp.secured_floors ++;
+			}
+			if( temp.secured_floors == elements_container['buildings'][1].floors.length )
+				elements_container['secured_buildings'] ++;
 
 			$(this).parent().addClass('pushed');
 		}
