@@ -181,6 +181,29 @@
 					temp.starting_game = 'pull';
 				}
 
+				// Move forward.
+				if( temp.move_forward == true ) {
+					elements_container['truck'].is_moving = true;
+					for(i in elements_container['buildings']) {
+						elements_container['buildings'][i].x -= 7;
+					}
+					if ( elements_container['buildings'][2].x == 144 ) {
+console.info(elements_container['buildings'][0]);
+console.info(elements_container['buildings'][4]);
+						temp.move_forward = false;
+						elements_container['truck'].is_moving = false;
+						elements_container['buildings'].shift();
+						elements_container['buildings'].push({
+							x: elements_container['buildings'][3].x + 266,
+							floors: [
+								'fire',
+								'fire'
+							]
+						});
+					}
+				}
+
+
 			// Update canvas graphics.
 			camera2d.update();
 
@@ -295,7 +318,7 @@ $(document).ready(function() {
 			}
 
 			// Move forward.
-			// TODO
+			temp.move_forward = true;
 
 			$(this).parent().addClass('pushed');
 		}
