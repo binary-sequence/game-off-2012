@@ -258,6 +258,9 @@ $(document).ready(function() {
 	// Adjust canvas to fit with the new size of screen.
 	camera2d.adjustGameScreen();
 
+	// Start camera.
+	camera2d.start();
+
 
 	// Event: Window size change.
 	$(window).resize(function() {
@@ -314,6 +317,95 @@ $(document).ready(function() {
 					}, 1000 );
 				});
 			});
+
+		}
+
+		// From gameover to licence.
+		else if( state == 'gameover' ) {
+
+			// RESET ELEMENTS.
+
+				// Buildings.
+				elements_container['buildings'] = [
+					{
+						x: 144-266,
+						floors: [
+							'safe'
+						]
+					},
+					{
+						x: 144,
+						floors: [
+							'fire',
+							'fire'
+						]
+					},
+					{
+						x: 144+266,
+						floors: [
+							'fire',
+							'fire'
+						]
+					},
+					{
+						x: 144+532,
+						floors: [
+							'fire',
+							'fire'
+						]
+					},
+					{
+						x: 144+798,
+						floors: [
+							'fire',
+							'fire'
+						]
+					},
+				];
+
+				// Truck.
+				elements_container['truck'] = {
+					x: -131,
+					is_moving: true
+				};
+
+				// Crane.
+				elements_container['crane'] = {
+					position: 0
+				};
+
+				// Shot of water.
+				elements_container['shot_of_water'] = {
+					show: false
+				};
+
+				// Infobox.
+				elements_container['infoboxes'] = {
+					commit_info: false,
+					pull_info: false,
+					push_info: false
+				};
+
+				// Counters.
+				elements_container['secured_buildings'] = 0;
+				elements_container['countdown_seconds'] = 30;
+				elements_container['counted_seconds'] = 0;
+
+				temp.move_forward = false;
+
+				$('#divGameScreen').fadeOut(500, function() {
+					$('#divGameOver').fadeOut(500, function() {
+						$('#divGameLicense').fadeIn(1000, function() {
+							$('#canvasGameScreen').attr('width', $('#canvasGameScreen').attr('width') );
+
+							// Start camera.
+							camera2d.start();
+
+							// Initial state.
+							state = 'license';
+						});
+					});
+				});
 
 		}
 

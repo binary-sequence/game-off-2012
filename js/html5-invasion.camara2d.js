@@ -57,20 +57,21 @@ function Camera2D(images, elements) {
 	this.canvasBufferScreen.width = this.canvasGameScreen.width;
 	this.canvasBufferScreen.height = this.canvasGameScreen.height;
 
-	// Frames to draw fire.
-	this.elements['fire'] = {
-		frame: 0,
-		count: 0
-	}
+	this.start = function() {
+		// Frames to draw fire.
+		this.elements['fire'] = {
+			frame: 0,
+			count: 0
+		}
 
-	// Frames to draw truck and crane.
-	this.elements['truck'].frame = 0;
-	this.elements['truck'].count = 0;
+		// Frames to draw truck and crane.
+		this.elements['truck'].frame = 0;
+		this.elements['truck'].count = 0;
 
-	// Frames to draw shot of water.
-	this.elements['shot_of_water'].frame = 0;
-	this.elements['shot_of_water'].count = 0;
-
+		// Frames to draw shot of water.
+		this.elements['shot_of_water'].frame = 0;
+		this.elements['shot_of_water'].count = 0;
+	};
 
 // METHODS.    --------//
 
