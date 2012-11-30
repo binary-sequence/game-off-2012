@@ -98,12 +98,12 @@ function Camera2D(images, elements) {
 			this.contextBufferScreen.drawImage( images['control_panel'], 0, 430+10 );
 
 			// Clouds.
-			var x = elements['cloud_a'].x;
+			var x = this.elements['cloud_a'].x;
 			var y = 1;
 			this.drawEllipse( x+162.5, y+25, 225, 50, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+200, y+37.5, 200, 50, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+100, y+62.5, 200, 50, 'white', this.contextBufferScreen );
-			x = elements['cloud_b'].x;
+			x = this.elements['cloud_b'].x;
 			this.drawEllipse( x+25, y+12.5, 50, 25, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+52.5, y+25, 75, 37.5, 'white', this.contextBufferScreen );
 			this.drawEllipse( x+80, y+31.25, 100, 50, 'white', this.contextBufferScreen );
@@ -114,20 +114,20 @@ function Camera2D(images, elements) {
 
 		// BUILDINGS.
 
-			for( i in elements['buildings'] ) {
-				var x = elements['buildings'][i].x;
+			for( i in this.elements['buildings'] ) {
+				var x = this.elements['buildings'][i].x;
 				var y = 350;
 				this.contextBufferScreen.drawImage( images['building'],
 					0, 0, 133, 80,
 					x, y, 133, 80
 				);
-				for( j in elements['buildings'][i].floors ) {
+				for( j in this.elements['buildings'][i].floors ) {
 					y -= 80;
 					this.contextBufferScreen.drawImage( images['building'],
 						133, 0, 133, 80,
 						x, y, 133, 80
 					);
-					if( elements['buildings'][i].floors[j] == 'fire' ) {
+					if( this.elements['buildings'][i].floors[j] == 'fire' ) {
 						for( var k = 15; k <= (15+33*2); k += 33 ) {
 							this.contextBufferScreen.drawImage( images['fire'],
 								this.elements['fire'].frame, 0, 25, 26,
@@ -154,7 +154,7 @@ function Camera2D(images, elements) {
 
 		// TRUCK.
 
-			var x = elements['truck'].x;
+			var x = this.elements['truck'].x;
 			var y = 363;
 
 			// Truck.
@@ -205,23 +205,23 @@ function Camera2D(images, elements) {
 
 		// INFOBOXES.
 
-			if( elements['infoboxes'].commit_info ) {
+			if( this.elements['infoboxes'].commit_info ) {
 				this.drawBox(4, 4, 462.5, 40, this.contextBufferScreen);
 				this.drawText('Push the commit button to shoot water.', 9, 7, 'black', this.contextBufferScreen);
-			} else if( elements['infoboxes'].pull_info ) {
+			} else if( this.elements['infoboxes'].pull_info ) {
 				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
 				this.drawText('Pull the lever to move the crane.', 9, 7, 'black', this.contextBufferScreen);
-			} else if( elements['infoboxes'].push_info ) {
+			} else if( this.elements['infoboxes'].push_info ) {
 				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
 				this.drawText('Push the pedal to move forward.', 9, 7, 'black', this.contextBufferScreen);
 			}
 
 
 		// Extra second.
-		if( elements_container['extra_second'].show ) {
+		if( this.elements['extra_second'].show ) {
 			this.drawText(
-				'+' + elements['extra_second'].seconds + ' s',
-				elements_container['buildings'][1].x,
+				'+' + this.elements['extra_second'].seconds + ' s',
+				this.elements['buildings'][1].x,
 				this.extra_second.y,
 				'#00BB00',
 				this.contextBufferScreen
@@ -229,7 +229,7 @@ function Camera2D(images, elements) {
 			this.extra_second.y --;
 
 			if( this.extra_second.initial_y - this.extra_second.y >= 20 ) {
-				elements_container['extra_second'].show = false;
+				this.elements['extra_second'].show = false;
 				this.extra_second.y = this.extra_second.initial_y;
 			}
 		}
