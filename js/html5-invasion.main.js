@@ -119,12 +119,18 @@
 	elements_container['secured_buildings'] = 0;
 	elements_container['countdown_seconds'] = 30;
 	elements_container['counted_seconds'] = 0;
+	elements_container['clock'] = {
+		last: 0,
+		now: function() {
+			return (new Date()).getTime();
+		}
+	};
 
 	// Reference to camera2d object.
 	var camera2d = null;
 
 	// Other stuff
-	var FPS = 60, main_loop, time_interval;
+	var FPS = 60, main_loop;
 	var state;
 	/*
 		STATE:
@@ -211,11 +217,18 @@
 					}
 				}
 
+				// Clock.
+				if( elements_container['clock'].now() - elements_container['clock'].last >= 1000 ) {
+					elements_container['countdown_seconds'] --;
+					elements_container['counted_seconds'] ++;
+					$('#divTimeCounter').html( elements_container['countdown_seconds'] );
+
+					elements_container['clock'].last = elements_container['clock'].now();
+				}
 
 			// Game over.
 			if( elements_container['countdown_seconds'] <= 0 ) {
 				state = 'gameover';
-				clearInterval( time_interval );
 				$('#divGameOver p:not(.notice)').html(
 					'Time: ' + Math.floor( elements_container['counted_seconds'] / 60 ) + ':' + elements_container['counted_seconds'] % 60 + "<br>\n" +
 					'Secured buildings: ' + elements_container['secured_buildings'] + "<br>\n"
@@ -257,6 +270,9 @@ $(document).ready(function() {
 
 	// Initial state.
 	state = 'license';
+
+	// Start seconds counter.
+	$('#divTimeCounter').html( elements_container['countdown_seconds'] );
 
 	// camara2D object (See /js/html5-invasion.camera2d.js).
 	camera2d = new Camera2D(images_container, elements_container);
@@ -315,12 +331,7 @@ $(document).ready(function() {
 				$('#divGameScreen').fadeIn( 1000, function() {
 					state = 'game';
 
-					// Time is running out.
-					time_interval = setInterval( function() {
-						elements_container['countdown_seconds'] --;
-						elements_container['counted_seconds'] ++;
-						$('#divTimeCounter').html( elements_container['countdown_seconds'] );
-					}, 1000 );
+					elements_container['clock'].last = elements_container['clock'].now();
 				});
 			});
 
