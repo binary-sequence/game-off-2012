@@ -262,9 +262,9 @@
 							'fire',
 							'fire'
 						];
-						if( elements_container['secured_buildings'] >= 7 )
+						if( elements_container['secured_buildings'] >= 2 )
 							floors[2] = 'fire';
-						if( elements_container['secured_buildings'] >= 14 )
+						if( elements_container['secured_buildings'] >= 7 )
 							floors[3] = 'fire';
 						elements_container['buildings'].push({
 							x: elements_container['buildings'][3].x + 266,
@@ -304,8 +304,12 @@
 			// Game over.
 			if( elements_container['countdown_seconds'] <= 0 ) {
 				state = 'gameover';
+				var minutes = Math.floor( elements_container['counted_seconds'] / 60 );
+				var seconds = elements_container['counted_seconds'] % 60;
+				if( seconds < 10 )
+					seconds = '0' + seconds;
 				$('#divGameOver p:not(.notice)').html(
-					'Time: ' + Math.floor( elements_container['counted_seconds'] / 60 ) + ':' + elements_container['counted_seconds'] % 60 + "<br>\n" +
+					'Time: ' + minutes + ':' + seconds + "<br>\n" +
 					'Secured buildings: ' + elements_container['secured_buildings'] + "<br>\n"
 				);
 				$('#divGameOver').fadeIn( 1000 );
