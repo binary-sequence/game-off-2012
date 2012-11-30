@@ -306,45 +306,8 @@ $(document).ready(function() {
 		// Show information in the javascript console of the browser.
 		console.info("Event: window.oncontextmenu");
 
-		// Deactivate context menu.
-		return false;
-
-	};// END window.oncontextmenu.
-
-
-	// Event: window.click.
-	$(window).click(function(e) {
-
-		// Show information in the javascript console of the browser.
-		console.info("Event: window.click");
-		console.info(e);
-
-		// From game license to game menu.
-		if( state == 'license' ) {
-
-			$('#divGameLicense').fadeOut( 1000, function() {
-				$('#divGameMenu').fadeIn( 1000, function() {
-					state = 'menu';
-				});
-			});
-
-		}
-
-		// From game menu to game.
-		else if( state == 'menu' ) {
-
-			$('#divGameMenu').fadeOut( 1000, function() {
-				$('#divGameScreen').fadeIn( 1000, function() {
-					state = 'game';
-
-					elements_container['clock'].last = elements_container['clock'].now();
-				});
-			});
-
-		}
-
 		// From gameover to licence.
-		else if( state == 'gameover' ) {
+		if( state == 'gameover' ) {
 
 			// RESET ELEMENTS.
 
@@ -429,6 +392,43 @@ $(document).ready(function() {
 						});
 					});
 				});
+
+		}
+
+		// Deactivate context menu.
+		return false;
+
+	};// END window.oncontextmenu.
+
+
+	// Event: window.click.
+	$(window).click(function(e) {
+
+		// Show information in the javascript console of the browser.
+		console.info("Event: window.click");
+		console.info(e);
+
+		// From game license to game menu.
+		if( state == 'license' ) {
+
+			$('#divGameLicense').fadeOut( 1000, function() {
+				$('#divGameMenu').fadeIn( 1000, function() {
+					state = 'menu';
+				});
+			});
+
+		}
+
+		// From game menu to game.
+		else if( state == 'menu' ) {
+
+			$('#divGameMenu').fadeOut( 1000, function() {
+				$('#divGameScreen').fadeIn( 1000, function() {
+					state = 'game';
+
+					elements_container['clock'].last = elements_container['clock'].now();
+				});
+			});
 
 		}
 
