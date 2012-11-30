@@ -110,6 +110,11 @@
 		push_info: false
 	};
 
+	// Extra second.
+	elements_container['extra_second'] = {
+		show: false
+	};
+
 	// Counters.
 	elements_container['secured_buildings'] = 0;
 	elements_container['countdown_seconds'] = 30;
@@ -205,6 +210,7 @@
 						});
 					}
 				}
+
 
 			// Game over.
 			if( elements_container['countdown_seconds'] <= 0 ) {
@@ -540,8 +546,11 @@ $(document).ready(function() {
 				if( elements_container['buildings'][1].floors[i] == 'safe' )
 					temp.secured_floors ++;
 			}
-			if( temp.secured_floors == elements_container['buildings'][1].floors.length )
+			if( temp.secured_floors == elements_container['buildings'][1].floors.length ) {
 				elements_container['secured_buildings'] ++;
+				elements_container['countdown_seconds'] ++;
+				elements_container['extra_second'].show = true;
+			}
 
 			$(this).parent().addClass('pushed');
 		}

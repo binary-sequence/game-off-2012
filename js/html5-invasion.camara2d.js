@@ -71,6 +71,12 @@ function Camera2D(images, elements) {
 		// Frames to draw shot of water.
 		this.elements['shot_of_water'].frame = 0;
 		this.elements['shot_of_water'].count = 0;
+
+		// Other stuff.
+		this.extra_second = {
+			initial_y: 100,
+			y: 100
+		};
 	};
 
 // METHODS.    --------//
@@ -201,14 +207,32 @@ function Camera2D(images, elements) {
 
 			if( elements['infoboxes'].commit_info ) {
 				this.drawBox(4, 4, 462.5, 40, this.contextBufferScreen);
-				this.drawText('Push the commit button to shoot water.', 9, 7, this.contextBufferScreen);
+				this.drawText('Push the commit button to shoot water.', 9, 7, 'black', this.contextBufferScreen);
 			} else if( elements['infoboxes'].pull_info ) {
 				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
-				this.drawText('Pull the lever to move the crane.', 9, 7, this.contextBufferScreen);
+				this.drawText('Pull the lever to move the crane.', 9, 7, 'black', this.contextBufferScreen);
 			} else if( elements['infoboxes'].push_info ) {
 				this.drawBox(4, 4, 380, 40, this.contextBufferScreen);
-				this.drawText('Push the pedal to move forward.', 9, 7, this.contextBufferScreen);
+				this.drawText('Push the pedal to move forward.', 9, 7, 'black', this.contextBufferScreen);
 			}
+
+
+		// Extra second.
+		if( elements_container['extra_second'].show ) {
+			this.drawText(
+				'+1 second!',
+				elements_container['buildings'][1].x,
+				this.extra_second.y,
+				'#00BB00',
+				this.contextBufferScreen
+			);
+			this.extra_second.y --;
+
+			if( this.extra_second.initial_y - this.extra_second.y >= 20 ) {
+				elements_container['extra_second'].show = false;
+				this.extra_second.y = this.extra_second.initial_y;
+			}
+		}
 
 
 		// DUMP BUFFER TO CANVAS.    --------//
@@ -281,10 +305,10 @@ function Camera2D(images, elements) {
 
 
 	// This function draws text.
-	this.drawText = function(text, x, y, context) {
+	this.drawText = function(text, x, y, color, context) {
 		context.textBaseline = 'top';
 		context.font = 'bold 20pt Verdana';
-		context.fillStyle = 'black';
+		context.fillStyle = color;
 		context.fillText( text, x, y );
 	};
 
