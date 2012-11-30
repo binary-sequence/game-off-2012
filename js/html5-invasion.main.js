@@ -25,6 +25,8 @@
 	var images_container = new Object();
 
 	// Load images.
+	images_container['fork'] = new Image();
+	images_container['fork'].src = 'img/fork.png';
 	images_container['meteorite'] = new Image();
 	images_container['meteorite'].src = 'img/meteorite.png';
 	images_container['control_panel'] = new Image();
@@ -43,7 +45,10 @@
 	// Elements container.
 	var elements_container = new Object();
 
-	// Meteorites. Math.floor((Math.random()*100)+1);
+	// Space Fork One.
+	elements_container['forks'] = [];
+
+	// Meteorites.
 	elements_container['meteorites'] = [
 		{
 			x: Math.floor((Math.random()*200-35)),
@@ -266,6 +271,25 @@
 							floors: floors
 						});
 					}
+
+					// Space Fork One.
+					if( elements_container['secured_buildings'] >= 2 &&
+						elements_container['forks'].length == 0 ) {
+						elements_container['forks'][0] = {
+							x: elements_container['buildings'][3].x + 80,
+							y: 130
+						};
+					}
+					if( elements_container['secured_buildings'] >= 7 &&
+						elements_container['forks'].length == 1 ) {
+						elements_container['forks'][1] = {
+							x: elements_container['buildings'][3].x + 80,
+							y: 130
+						};
+					}
+					for(i in elements_container['forks']) {
+						elements_container['forks'][i].x -= 7;
+					}
 				}
 
 				// Clock.
@@ -355,6 +379,9 @@ $(document).ready(function() {
 		if( state == 'gameover' ) {
 
 			// RESET ELEMENTS.
+
+				// Space Fork One.
+				elements_container['forks'] = [];
 
 				// Buildings.
 				elements_container['buildings'] = [

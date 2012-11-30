@@ -90,6 +90,15 @@ function Camera2D(images, elements) {
 			this.contextBufferScreen.fillStyle = "#E3E3E3";
 			this.contextBufferScreen.fillRect(0, 0, 800, 430);
 
+			// Space Fork One.
+			for( i in this.elements['forks'] ) {
+				this.contextBufferScreen.drawImage(
+					images['fork'],
+					this.elements['forks'][i].x,
+					this.elements['forks'][i].y
+				);
+			}
+
 			// Meteorites.
 			for( i in this.elements['meteorites'] ) {
 				this.contextBufferScreen.drawImage(
