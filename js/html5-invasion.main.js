@@ -25,6 +25,8 @@
 	var images_container = new Object();
 
 	// Load images.
+	images_container['meteorite'] = new Image();
+	images_container['meteorite'].src = 'img/meteorite.png';
 	images_container['control_panel'] = new Image();
 	images_container['control_panel'].src = 'img/control_panel.png';
 	images_container['building'] = new Image();
@@ -40,6 +42,34 @@
 
 	// Elements container.
 	var elements_container = new Object();
+
+	// Meteorites. Math.floor((Math.random()*100)+1);
+	elements_container['meteorites'] = [
+		{
+			x: Math.floor((Math.random()*200-35)),
+			y: -Math.floor((Math.random()*100)+25),
+			x_speed: -Math.floor((Math.random()*4)+1),
+			y_speed: Math.floor((Math.random()*10)+4)
+		},
+		{
+			x: Math.floor((Math.random()*400-35)+200),
+			y: -Math.floor((Math.random()*100)+25),
+			x_speed: -Math.floor((Math.random()*4)+1),
+			y_speed: Math.floor((Math.random()*10)+4)
+		},
+		{
+			x: Math.floor((Math.random()*600-35)+400),
+			y: -Math.floor((Math.random()*100)+25),
+			x_speed: -Math.floor((Math.random()*4)+1),
+			y_speed: Math.floor((Math.random()*10)+4)
+		},
+		{
+			x: Math.floor((Math.random()*800-25)+600),
+			y: -Math.floor((Math.random()*100)+25),
+			x_speed: -Math.floor((Math.random()*4)+1),
+			y_speed: Math.floor((Math.random()*10)+4)
+		},
+	];
 
 	// Clouds.
 	elements_container['cloud_a'] = {
@@ -176,6 +206,21 @@
 			console.info("Game state: Game.");
 
 			// UPDATE ELEMENTS.
+
+				// Meteorites.
+				for( i in elements_container['meteorites'] ) {
+					elements_container['meteorites'][i].x += elements_container['meteorites'][i].x_speed;
+					elements_container['meteorites'][i].y += elements_container['meteorites'][i].y_speed;
+
+					if( elements_container['meteorites'][i].y <= 600 ) {
+						elements_container['meteorites'][i].y_speed += 0.01;
+					} else {
+						elements_container['meteorites'][i].x = Math.floor((Math.random()*200*(i+1)-35)),
+						elements_container['meteorites'][i].y = -Math.floor((Math.random()*100)+25),
+						elements_container['meteorites'][i].x_speed = -Math.floor((Math.random()*4)+1),
+						elements_container['meteorites'][i].y_speed = Math.floor((Math.random()*10)+4)
+					}
+				}
 
 				// Clouds.
 				elements_container['cloud_a'].x -= 1;
