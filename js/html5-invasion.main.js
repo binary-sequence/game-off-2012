@@ -112,7 +112,8 @@
 
 	// Extra second.
 	elements_container['extra_second'] = {
-		show: false
+		show: false,
+		seconds: 0
 	};
 
 	// Counters.
@@ -207,12 +208,17 @@
 						temp.move_forward = false;
 						elements_container['truck'].is_moving = false;
 						elements_container['buildings'].shift();
+						floors = [
+							'fire',
+							'fire'
+						];
+						if( elements_container['secured_buildings'] >= 7 )
+							floors[2] = 'fire';
+						if( elements_container['secured_buildings'] >= 14 )
+							floors[3] = 'fire';
 						elements_container['buildings'].push({
 							x: elements_container['buildings'][3].x + 266,
-							floors: [
-								'fire',
-								'fire'
-							]
+							floors: floors
 						});
 					}
 				}
@@ -559,8 +565,16 @@ $(document).ready(function() {
 			}
 			if( temp.secured_floors == elements_container['buildings'][1].floors.length ) {
 				elements_container['secured_buildings'] ++;
-				elements_container['countdown_seconds'] ++;
+
+				temp.extra_seconds = 2;
+				if( temp.secured_floors >= 3 )
+					temp.extra_seconds ++;
+				if( temp.secured_floors >= 4 )
+					temp.extra_seconds ++;
+				elements_container['countdown_seconds'] += temp.extra_seconds;
+				elements_container['extra_second'].seconds = temp.extra_seconds;				
 				elements_container['extra_second'].show = true;
+				$('#divTimeCounter').html( elements_container['countdown_seconds'] );
 			}
 
 			$(this).parent().addClass('pushed');

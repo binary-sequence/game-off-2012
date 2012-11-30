@@ -220,7 +220,7 @@ function Camera2D(images, elements) {
 		// Extra second.
 		if( elements_container['extra_second'].show ) {
 			this.drawText(
-				'+1 second!',
+				'+' + elements['extra_second'].seconds + ' s',
 				elements_container['buildings'][1].x,
 				this.extra_second.y,
 				'#00BB00',
