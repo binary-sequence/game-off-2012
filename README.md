@@ -10,7 +10,7 @@ Control a fire truck in an epic struggle against the threat of space!
 
 ## Screenshot
 
-<img src="https://lh3.googleusercontent.com/-xH1Y_me-YOg/ULnFjPKpHLI/AAAAAAAACL4/bpV8Bowjyfg/s640/github_fame_off.png" style="border:0;">
+<img src="https://raw.github.com/binary-sequence/game-off-2012/master/screenshot-invasion.jpg" style="border:0;">
 
 ## Gameplay
 
